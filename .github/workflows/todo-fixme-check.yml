@@ -1,0 +1,11 @@
+name: TODO/FIXME Check
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "scan for TODO/FIXME without Jira key placeholder"

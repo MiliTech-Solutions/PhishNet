@@ -1,0 +1,11 @@
+name: Branch Name Check
+
+on:
+  pull_request:
+    types: [opened, synchronize, edited, ready_for_review]
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "branch name validation placeholder"

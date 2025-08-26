@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "shared" },
+    { "path": "backend" }
+    // Frontend TS project reference can be added when framework chosen
+  ]
+}

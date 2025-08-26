@@ -1,0 +1,12 @@
+name: Stale PR Labeler
+
+on:
+  schedule:
+    - cron: '0 7 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "stale PR labeling placeholder"

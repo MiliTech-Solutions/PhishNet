@@ -1,0 +1,12 @@
+{
+  "name": "@phishnet/backend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "echo \"(placeholder) backend dev server\"",
+    "build": "echo \"(placeholder) tsc build backend\"",
+    "test": "echo \"(placeholder) vitest backend tests\""
+  }
+}

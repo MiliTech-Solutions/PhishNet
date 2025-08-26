@@ -1,0 +1,11 @@
+{
+  "name": "@phishnet/frontend",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo \"(placeholder) frontend dev server\"",
+    "build": "echo \"(placeholder) frontend build\"",
+    "test": "echo \"(placeholder) vitest frontend tests\""
+  }
+}

@@ -1,0 +1,13 @@
+name: ADR Enforcement
+
+on:
+  pull_request:
+    paths:
+      - 'docs/adr/**'
+      - 'docs/decisions/**'
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "ADR approval rules placeholder"

@@ -1,0 +1,22 @@
+name: PR Title Check
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, ready_for_review]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate PR title
+        uses: actions-ecosystem/action-regex-match@v2
+        id: title
+        with:
+          text: "${{ github.event.pull_request.title }}"
+          regex: '^(feat|fix|chore|docs|refactor|test|ci|build)(\([^)]*\))? PHN-\d+: .+'
+      - name: Fail if invalid
+        if: steps.title.outputs.match != 'true'
+        run: |
+          echo "PR title must follow Conventional Commit + Jira key pattern." \
+          && echo "Pattern: <type>(optional-scope) PHN-<number>: <description>" \
+          && exit 1

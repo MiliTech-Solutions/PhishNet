@@ -1,0 +1,13 @@
+{
+  "name": "@phishnet/shared",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "echo \"(placeholder) build shared library\"",
+    "test": "echo \"(placeholder) vitest shared tests\""
+  }
+}
