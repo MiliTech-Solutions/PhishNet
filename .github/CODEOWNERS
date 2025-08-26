@@ -1,0 +1,6 @@
+# CODEOWNERS (placeholders)
+/db/ @gh0st-bit @db-specialist
+/infrastructure/ @gh0st-bit
+/frontend/ @frontend-dev
+/docs/ @docs-writer
+/shared/ @gh0st-bit @frontend-dev
