@@ -12,7 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Pipeline Status Note
-        run: echo "Bootstrap phase: some jobs are placeholders until implementation."
+        run: |
+          echo "Bootstrap phase: some jobs are placeholders until implementation."
+  
   lint:
     runs-on: ubuntu-latest
     steps:
