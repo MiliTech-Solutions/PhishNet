@@ -17,17 +17,32 @@
     "typecheck": "echo \"(placeholder) run tsc -b\"",
     "lint": "echo \"(placeholder) run eslint .\"",
     "format": "echo \"(placeholder) run prettier --write\"",
-    "test:unit": "echo \"(placeholder) run vitest --run\"",
-    "test:integration": "echo \"(placeholder) run backend integration tests\"",
-    "test:watch": "echo \"(placeholder) vitest --watch\"",
-    "coverage": "echo \"(placeholder) aggregate coverage\"",
+    "test:unit": "vitest run --coverage",
+    "test:integration": "echo \"(placeholder) backend integration tests (future)\"",
+    "test:watch": "vitest watch",
+    "coverage": "vitest run --coverage",
     "clean": "echo \"(placeholder) rimraf node_modules dist coverage\"",
-    "prepare": "echo \"(placeholder) husky install (future)\""
+    "prepare": "husky install || echo 'husky optional during bootstrap'",
+    "release:dry": "semantic-release --dry-run --no-ci"
   },
   "devDependencies": {
     "typescript": "^5.4.0",
     "vitest": "^1.6.0",
     "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.3.0"
+    "@commitlint/config-conventional": "^19.3.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.2.2",
+  "remark-cli": "^11.0.0",
+  "semantic-release": "^23.0.0",
+  "@semantic-release/commit-analyzer": "^13.0.0",
+  "@semantic-release/release-notes-generator": "^14.0.0",
+  "@semantic-release/changelog": "^6.0.3",
+  "@semantic-release/git": "^10.0.1"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": ["eslint --cache --max-warnings=0"],
+    "*.{md,mdx}": ["remark --no-stdout --silent || true"],
+    "*.{json,yml,yaml}": ["prettier --write"],
+    "*.{ts,tsx,js,jsx,json,md,mdx,yml,yaml}": ["prettier --write"]
   }
 }

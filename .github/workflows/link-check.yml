@@ -1,0 +1,17 @@
+name: Link Check
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Basic link scan (placeholder)
+        run: echo "Link check placeholder (implement later)"

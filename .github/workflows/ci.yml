@@ -8,6 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
+  pipeline-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pipeline Status Note
+        run: echo "Bootstrap phase: some jobs are placeholders until implementation."
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -19,7 +24,7 @@ jobs:
           node-version: 20
           cache: npm
       - name: Lint (placeholder)
-        run: echo "TODO lint"
+        run: echo "lint placeholder"
 
   typecheck:
     runs-on: ubuntu-latest
@@ -30,7 +35,7 @@ jobs:
           node-version: 20
           cache: npm
       - name: Typecheck (placeholder)
-        run: echo "TODO typecheck"
+        run: echo "typecheck placeholder"
 
   unit-tests:
     runs-on: ubuntu-latest
@@ -39,22 +44,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Unit tests (placeholder)
-        run: echo "TODO tests"
+          cache: pnpm
+      - name: Install deps
+        run: pnpm install --frozen-lockfile || pnpm install
+      - name: Unit tests (vitest)
+        run: pnpm test:unit
 
   build-frontend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Frontend build (placeholder)
-        run: echo "TODO frontend build"
+        run: echo "frontend build placeholder"
 
   build-backend:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Backend build (placeholder)
-        run: echo "TODO backend build"
+        run: echo "backend build placeholder"
 
   integration-tests:
     if: github.event_name == 'pull_request'
@@ -62,11 +70,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Integration tests (placeholder)
-        run: echo "TODO integration tests"
+        run: echo "integration tests placeholder"
 
   coverage-report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Coverage (placeholder)
-        run: echo "0% coverage placeholder"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install deps
+        run: pnpm install --frozen-lockfile || pnpm install
+      - name: Coverage (vitest)
+        run: pnpm coverage

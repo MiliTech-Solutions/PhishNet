@@ -1,0 +1,20 @@
+name: Markdown Lint
+
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+  workflow_dispatch:
+
+jobs:
+  remark:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install remark
+        run: npm install remark-cli --no-save || pnpm add -Dw remark-cli
+      - name: Lint markdown (non-blocking)
+        run: npx remark . || true
