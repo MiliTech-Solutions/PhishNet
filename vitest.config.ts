@@ -10,7 +10,13 @@ export default defineConfig({
       statements: 60,
       branches: 60,
       functions: 60,
-      lines: 60
+      lines: 60,
+      exclude: [
+        'docusaurus.config.*',
+        'sidebars.*',
+        '**/dist/**',
+        '**/coverage/**'
+      ]
     }
   }
 });
